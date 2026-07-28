@@ -99,19 +99,19 @@ export default function EditProject() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
-      <h1 className="text-4xl font-bold text-black mb-8">Edit Project ✨</h1>
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-[#172554] px-4 sm:px-6 lg:px-10 py-6 sm:py-8 sm:py-10">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white text-center mb-10">Edit Project ✨</h1>
 
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow-md max-w-xl"
+        className="w-full w-full max-w-xl mx-auto bg-white/95 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-5 sm:p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-cyan-500/20 p-5 sm:p-8 rounded-3xl shadow-md w-full max-w-xl w-full mx-auto"
       >
         <input
           name="title"
           value={formData.title}
           onChange={handleChange}
           placeholder="Project Title"
-          className="w-full border p-3 rounded mb-4 text-black"
+         className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base mb-4 text-black outline-none transition-all duration-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-200 hover:border-violet-300 hover:shadow-md"
         />
 
         <textarea
@@ -119,7 +119,7 @@ export default function EditProject() {
           value={formData.description}
           onChange={handleChange}
           placeholder="Description"
-          className="w-full border p-3 rounded mb-4 text-black"
+         className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base mb-4 text-black outline-none transition-all duration-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-200 hover:border-violet-300 hover:shadow-md"
         />
 
         <input
@@ -127,7 +127,7 @@ export default function EditProject() {
           value={formData.techStack}
           onChange={handleChange}
           placeholder="Tech Stack (React, MongoDB)"
-          className="w-full border p-3 rounded mb-4 text-black"
+         className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base mb-4 text-black outline-none transition-all duration-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-200 hover:border-violet-300 hover:shadow-md"
         />
 
         <input
@@ -135,7 +135,7 @@ export default function EditProject() {
           value={formData.repoLink}
           onChange={handleChange}
           placeholder="Github URL"
-          className="w-full border p-3 rounded mb-4 text-black"
+         className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base mb-4 text-black outline-none transition-all duration-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-200 hover:border-violet-300 hover:shadow-md"
         />
 
         <input
@@ -143,7 +143,7 @@ export default function EditProject() {
           value={formData.liveLink}
           onChange={handleChange}
           placeholder="Live URL"
-          className="w-full border p-3 rounded mb-4 text-black"
+         className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base mb-4 text-black outline-none transition-all duration-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-200 hover:border-violet-300 hover:shadow-md"
         />
 
         <input
@@ -151,9 +151,9 @@ export default function EditProject() {
           value={formData.screenshot}
           onChange={handleChange}
           placeholder="Screenshot URL"
-          className="w-full border p-3 rounded mb-4 text-black"
+         className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base mb-4 text-black outline-none transition-all duration-300 focus:bg-white focus:border-violet-500 focus:ring-4 focus:ring-violet-200 hover:border-violet-300 hover:shadow-md"
         />
-        <div className="flex items-center gap-3 mb-5">
+        <div className="flex items-center justify-between gap-3 bg-gray-50 border rounded-2xl p-4 sm:p-5 mb-6">
   <input
     type="checkbox"
     checked={formData.featured}
@@ -166,12 +166,12 @@ export default function EditProject() {
     className="w-5 h-5"
   />
 
-  <label className="text-black font-medium">
+  <label className="text-black font-medium text-sm sm:text-base">
     Featured Project ⭐
   </label>
 </div>
 
-        <button className="bg-black text-white px-6 py-3 rounded">
+        <button className="w-full bg-gradient-to-r from-violet-600 via-purple-600 to-cyan-500 text-white py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:scale-[1.02] transition">
           Update Project 🚀
         </button>
       </form>

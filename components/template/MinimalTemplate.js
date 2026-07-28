@@ -35,16 +35,16 @@ const handleSubmit = async (e) => {
     <div className="min-h-screen bg-gray-100">
       {/* Hero Section */}
       <div className="bg-linear-to-br from-white via-slate-50 to-gray-200 border-b">
-        <div className="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-6 pt-14 md:pt-20 pb-12 md:pb-16 text-center">
           {user.profileImage && (
             <img
               src={user.profileImage}
               alt="profile"
-              className="w-44 h-44 rounded-full mx-auto object-cover border-[6px] border-white shadow-2xl ring-4 ring-gray-200"
+             className="w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-full mx-auto object-cover border-[6px] border-white shadow-2xl ring-4 ring-gray-200"
             />
           )}
 <div className="flex justify-center items-center gap-3">
-          <h1 className="text-6xl md:text-7xl font-extrabold text-black mt-8 tracking-tight">
+          <h1 className="text-3xl md:text-3xl md:text-4xl sm:text-5xl md:text-7xl font-extrabold text-black mt-8 tracking-tight">
             {user.name}
           </h1>
 
@@ -55,17 +55,17 @@ const handleSubmit = async (e) => {
   )}
 </div>
 
-          <p className="text-gray-500 text-xl mt-3">@{user.username}</p>
+          <p className="text-gray-500 text-lg md:text-xl mt-3">@{user.username}</p>
 
-          <p className="mt-6 text-2xl font-semibold text-gray-700">
+          <p className="mt-6 text-xl md:text-2xl font-semibold text-gray-700">
             Full Stack Developer 🚀
           </p>
 
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-600 leading-9">
+          <p className="mt-6 max-w-3xl mx-auto text-base md:text-lg text-gray-600 leading-7 md:leading-9 px-2">
             {user.bio}
           </p>
 
-          <div className="flex justify-center gap-4 mt-8">
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
             {user.socialLinks?.github && (
               <a
                 href={user.socialLinks.github}
@@ -107,8 +107,8 @@ const handleSubmit = async (e) => {
       </div>
 
       {/* Projects */}
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        <h2 className="text-4xl font-bold text-black text-center mb-12">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-8">
+        <h2 className="text-3xl md:text-3xl md:text-4xl font-bold text-black text-center mb-12">
           Featured Projects 🚀
         </h2>
 
@@ -125,7 +125,7 @@ const handleSubmit = async (e) => {
 />
 
               <div className="p-6 flex flex-col">
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900">
                   {project.title}
                 </h3>
 
@@ -170,13 +170,13 @@ const handleSubmit = async (e) => {
       {/* Contact Section */}
 
       <div className="bg-white py-16">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-black">Contact Me 📩</h2>
+       <div className="max-w-2xl mx-auto text-center px-4 md:px-0">
+          <h2 className="text-3xl md:text-3xl md:text-4xl font-bold text-black">Contact Me 📩</h2>
 
           <p className="text-gray-600 mt-3">
             Interested in working together? Send me a message.
           </p>
-          <div className="bg-gray-50 rounded-3xl shadow-lg p-10 mt-10">
+          <div className="bg-gray-50 rounded-3xl shadow-lg p-6 md:p-10 mt-10">
             <form
   onSubmit={handleSubmit}
   className="mt-10 space-y-5"
@@ -218,7 +218,7 @@ const handleSubmit = async (e) => {
               <button
   type="submit"
   disabled={loading}
-  className="bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition disabled:opacity-60"
+  className="w-full sm:w-auto bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition disabled:opacity-60"
 >
   {loading ? "Sending..." : "Send Message"}
 </button>
@@ -232,7 +232,7 @@ const handleSubmit = async (e) => {
         </div>
       </div>
       {/* Footer */}
-      <footer className="bg-black text-white py-8 text-center">
+      <footer className="bg-black text-white py-6 md:py-8 text-center">
         <p>© 2026 {user.name}. Built with ❤️ using Next.js</p>
       </footer>
     </div>

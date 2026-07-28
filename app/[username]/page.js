@@ -69,37 +69,37 @@ if (user.templateId === "gradient") {
   );
 }
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-100 via-white to-gray-200 py-10 px-5">
-      <nav className="max-w-5xl mx-auto mb-8 bg-white rounded-2xl shadow-md px-6 py-4 flex justify-between items-center border">
-        <h2 className="text-2xl font-bold text-black">{user.name}</h2>
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-[#172554] py-8 sm:py-12 px-4 sm:px-6">
+      <nav className="max-w-6xl mx-auto mb-8 bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl px-5 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <h2 className="text-2xl font-black text-white">{user.name}</h2>
 
-        <div className="flex gap-4">
+        <div className="flex gap-6 text-sm sm:text-base">
           <a
             href="#projects"
-            className="text-gray-700 hover:text-black font-semibold"
+            className="text-slate-300 hover:text-cyan-400 font-semibold transition"
           >
             Projects
           </a>
 
           <a
             href="#contact"
-            className="text-gray-700 hover:text-black font-semibold"
+            className="text-slate-300 hover:text-cyan-400 font-semibold transition"
           >
             Contact
           </a>
         </div>
       </nav>
-      <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl p-10 text-black text-center border">
+      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200 p-6 sm:p-10 text-black text-center hover:shadow-cyan-500/10 transition-all duration-500">
         {user.profileImage && (
           <img
             src={user.profileImage}
             alt="profile"
-            className="w-36 h-36 rounded-full object-cover mb-6 mx-auto border-4 border-black shadow-lg"
+            className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-6 mx-auto border-4 border-cyan-500 shadow-2xl"
           />
         )}
 
        <div className="flex justify-center items-center gap-3">
-  <h1 className="text-5xl md:text-6xl font-extrabold">
+  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black">
     {user.name}
   </h1>
 
@@ -129,7 +129,7 @@ if (user.templateId === "gradient") {
               href={user.socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-lg hover:scale-105 transition"
+              className="flex items-center justify-center gap-2 bg-gradient-to-r from-slate-900 to-black text-white px-5 py-3 rounded-xl hover:scale-105 transition-all"
             >
               <Github size={22} />
               Github
@@ -141,7 +141,7 @@ if (user.templateId === "gradient") {
               href={user.socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-lg hover:scale-105 transition"
+              className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-5 py-3 rounded-xl hover:scale-105 transition-all"
             >
               <Linkedin size={22} />
               LinkedIn
@@ -153,7 +153,7 @@ if (user.templateId === "gradient") {
             href={user.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-block bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+            className="mt-6 inline-block bg-gradient-to-r from-emerald-500 to-green-600 text-white px-8 py-3 rounded-xl hover:scale-105 transition-all"
           >
             Download Resume 📄
           </a>
@@ -161,11 +161,11 @@ if (user.templateId === "gradient") {
         <div className="mt-5">
           <h2 className="text-xl font-bold">Skills 🚀</h2>
 
-          <div className="flex flex-wrap gap-2 mt-3">
+          <div className="flex flex-wrap justify-center gap-3 mt-5">
             {user.skills?.map((skill, index) => (
               <span
                 key={index}
-                className="bg-gray-900 text-white px-4 py-2 rounded-full text-sm shadow"
+                className="bg-gradient-to-r from-violet-600 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
               >
                 {skill}
               </span>
@@ -175,11 +175,11 @@ if (user.templateId === "gradient") {
       </div>
 
       <div id="projects" className="max-w-4xl mx-auto mt-8">
-        <h2 className="text-4xl font-extrabold text-black mb-6">
+        <h2 className="text-3xl sm:text-5xl font-black text-center text-white mb-10">
           Featured Projects 🚀
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
   {projects.length === 0 ? (
 
@@ -192,12 +192,12 @@ if (user.templateId === "gradient") {
     projects.map((project) => (
             <div
               key={project._id.toString()}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden text-black hover:shadow-2xl hover:-translate-y-2 transition duration-300 border"
+              className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl hover:shadow-[0_25px_60px_rgba(124,58,237,0.20)] hover:-translate-y-3 transition-all duration-500"
             >
               <img
                 src={project.screenshot || "/projects/default.png"}
                 alt={project.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-56 object-cover group-hover:scale-105 transition duration-700"
               />
 
               <div className="p-6">
@@ -209,7 +209,7 @@ if (user.templateId === "gradient") {
                   {project.techStack.map((tech, index) => (
                     <span
                       key={index}
-                      className="bg-black text-white px-3 py-1 rounded-full text-sm"
+                      className="bg-gradient-to-r from-violet-600 to-cyan-500 text-white px-3 py-1 rounded-full text-xs font-semibold"
                     >
                       {tech}
                     </span>
@@ -243,9 +243,9 @@ if (user.templateId === "gradient") {
       </div>
       <div
         id="contact"
-        className="max-w-5xl mx-auto mt-16 bg-white rounded-3xl shadow-xl p-10 text-center border"
+        className="max-w-6xl mx-auto mt-16 bg-white rounded-3xl shadow-2xl border border-slate-200 p-6 sm:p-10 text-center"
       >
-        <h2 className="text-4xl font-extrabold text-black">Let's Connect 🚀</h2>
+        <h2 className="text-3xl sm:text-5xl font-black text-black">Let's Connect 🚀</h2>
 
         <p className="mt-4 text-gray-600 text-lg">
           Interested in working together? Feel free to reach out.
@@ -281,7 +281,7 @@ if (user.templateId === "gradient") {
           )}
         </div>
       </div>
-      <footer className="text-center mt-16 text-gray-600">
+      <footer className="text-center mt-16 text-slate-300">
         <p>© 2026 {user.name}. Built with Next.js 🚀</p>
       </footer>
     </div>

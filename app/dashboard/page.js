@@ -108,26 +108,26 @@ const completion = Math.round(
   (completedFields / profileFields.length) * 100
 );
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-6">
-      <nav className="sticky top-5 z-50 backdrop-blur-xl bg-white/10 border border-white/10 rounded-3xl shadow-2xl p-5 flex justify-between items-center mb-8">
-       <h1 className="text-3xl font-extrabold text-white tracking-wide">CodeFolio 🚀</h1>
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-4 sm:p-6">
+      <nav className="sticky top-4 sm:top-5 z-50 backdrop-blur-xl bg-white/10 border border-white/10 rounded-3xl shadow-2xl p-4 sm:p-5 flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+       <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-wide text-center">CodeFolio 🚀</h1>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
           <span className="text-white font-semibold">
             Welcome {user.name}
           </span>
 
           <button
             onClick={() => router.push("/dashboard/profile")}
-            className="px-5 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold hover:scale-105 transition"
+            className="w-full sm:w-auto px-5 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold hover:scale-105 transition"
           >
             Profile
           </button>
         </div>
       </nav>
 
-      <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 p-8 text-black mb-8">
-       <h2 className="text-3xl font-extrabold">Developer Profile 👋</h2>
+      <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 p-5 sm:p-8 text-black mb-8">
+       <h2 className="text-2xl sm:text-3xl font-extrabold">Developer Profile 👋</h2>
 <div className="flex flex-col lg:flex-row gap-8 mt-8">
 
   <div className="flex flex-col items-center lg:items-start">
@@ -137,14 +137,14 @@ const completion = Math.round(
       <img
         src={user.profileImage}
         alt="profile"
-        className="w-36 h-36 rounded-full border-4 border-violet-500 shadow-xl object-cover"
+        className="w-28 h-28 sm:w-36 sm:h-36 rounded-full border-4 border-violet-500 shadow-xl object-cover"
       />
 
     )}
 
    <div className="mt-5 flex items-center gap-3">
 
-  <h2 className="text-3xl font-bold">
+  <h2 className="text-2xl sm:text-3xl font-bold">
     {user.name}
   </h2>
 
@@ -172,7 +172,7 @@ const completion = Math.round(
       Portfolio URL
     </p>
 
-    <div className="flex gap-3 mt-3">
+    <div className="flex flex-col sm:flex-row gap-3 mt-3">
 
       <input
         value={`${window.location.origin}/${user.username}`}
@@ -187,7 +187,7 @@ const completion = Math.round(
           );
           toast.success("Copied 🚀");
         }}
-        className="px-6 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold"
+        className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold"
       >
         Copy
       </button>
@@ -283,7 +283,7 @@ const completion = Math.round(
 
     <button
       onClick={()=>router.push("/dashboard/profile")}
-      className="px-8 py-3 rounded-2xl bg-gradient-to-r from-violet-600 via-purple-600 to-cyan-500 text-white font-bold shadow-xl hover:scale-105 transition"
+      className="w-full sm:w-auto px-8 py-3 rounded-2xl bg-gradient-to-r from-violet-600 via-purple-600 to-cyan-500 text-white font-bold shadow-xl hover:scale-105 transition"
     >
       Edit Profile
     </button>
@@ -314,7 +314,7 @@ const completion = Math.round(
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-    <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+    <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-5 sm:p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
 
     <div className="flex items-center justify-between">
 
@@ -323,7 +323,7 @@ const completion = Math.round(
                 PROFILE
             </p>
 
-            <h2 className="text-3xl font-bold mt-2 text-black">
+            <h2 className="text-2xl sm:text-3xl font-bold mt-2 text-black">
                 {completion}% Complete
             </h2>
         </div>
@@ -379,7 +379,7 @@ const completion = Math.round(
 
 </div>
 
-       <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+       <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-5 sm:p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
 
     <div className="flex justify-between items-center">
 
@@ -434,7 +434,7 @@ const completion = Math.round(
   <img
     src={templateImages[user.templateId]}
     alt="Template Preview"
-    className="w-full h-72 object-cover object-top transition-all duration-500 hover:scale-105"
+    className="w-full h-56 sm:h-64 lg:h-72 object-cover object-top transition-all duration-500 hover:scale-105"
   />
 </div>
 <div className="border-t border-gray-100"></div>
@@ -461,7 +461,7 @@ const completion = Math.round(
       CURRENT TEMPLATE
     </p>
 
-    <h2 className="mt-2 text-4xl font-black tracking-tight text-black capitalize">
+    <h2 className="mt-2 text-3xl sm:text-4xl font-black tracking-tight text-black capitalize">
       {user.templateId}
     </h2>
 
@@ -501,10 +501,10 @@ Production Ready
       </div>
       <div className="mt-10">
        <div className="flex justify-center mb-8 mt-3">
-  <div className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10 shadow-xl">
+  <div className="inline-flex items-center gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10 shadow-xl">
     <span className="text-4xl">🚀</span>
 
-    <h2 className="text-4xl font-black tracking-wide bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-wide bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
       Your Projects
     </h2>
   </div>
@@ -512,9 +512,9 @@ Production Ready
 
        {projects.length === 0 ? (
 
-<div className="bg-white rounded-2xl shadow-lg p-10 text-center">
+<div className="bg-white rounded-2xl shadow-lg p-6 sm:p-10 text-center">
 
-<h3 className="text-3xl font-bold text-black">
+<h3 className="text-2xl sm:text-3xl font-bold text-black">
 🚀 No Projects Yet
 </h3>
 
@@ -539,24 +539,24 @@ Add Your First Project
           {projects.map((project) => (
           <div
   key={project._id}
-  className="group bg-white/95 backdrop-blur-xl rounded-3xl overflow-hidden border border-slate-200  shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_25px_60px_rgba(124,58,237,0.20)] hover:-translate-y-3  transition-all duration-500 w-[360px] flex-shrink-0">
+  className="group bg-white/95 backdrop-blur-xl rounded-3xl overflow-hidden border border-slate-200  shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_25px_60px_rgba(124,58,237,0.20)] hover:-translate-y-3  transition-all duration-500 w-full sm:w-[360px] flex-shrink-0">
               {project.screenshot && (
                 <img
                   src={project.screenshot}
                   alt={project.title}
-                  className="w-full h-52 object-cover group-hover:scale-105 transition duration-700"
+                  className="w-full h-48 sm:h-52 object-cover group-hover:scale-105 transition duration-700"
                 />
               )}
               <div className="p-6">
-                <h3 className="text-2xl font-extrabold text-slate-900">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                   {project.title}
                 </h3>
 
-                <p className="mt-3 text-[15px] leading-7 text-slate-600 min-h-[84px]">
+                <p className="mt-3 text-sm sm:text-[15px] leading-6 sm:leading-7 text-slate-600 min-h-[84px]">
                   {project.description}
                 </p>
 
-                <div className="flex items-center justify-between mt-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-4">
 
   <span className="text-sm font-semibold text-gray-700">
     Featured Project

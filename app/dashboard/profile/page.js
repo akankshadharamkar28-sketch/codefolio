@@ -107,18 +107,18 @@ export default function Profile() {
 }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-[#172554] p-10">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-[#172554] p-4 sm:p-6 lg:p-10">
      <div className="mb-10">
-  <h1 className="text-5xl font-extrabold text-white">
+  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
     Edit Profile ✨
   </h1>
 
-  <p className="text-slate-300 mt-3 text-lg">
+  <p className="text-slate-300 mt-3 text-base sm:text-lg">
     Keep your portfolio updated and recruiter ready.
   </p>
 </div>
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl p-7 mb-10 hover:shadow-cyan-500/10 transition-all duration-500">
-        <div className="flex justify-between items-center mb-3">
+      <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl p-5 sm:p-7 mb-10 hover:shadow-cyan-500/10 transition-all duration-500">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-3">
           <h2 className="text-xl font-bold text-black">Profile Completion</h2>
 
           <span className="text-green-600 font-semibold">{completion}%</span>
@@ -140,7 +140,7 @@ export default function Profile() {
       <div className="grid lg:grid-cols-2 gap-8">
         <form
           onSubmit={handleSubmit}
-         className="bg-white rounded-3xl border border-slate-200 shadow-2xl p-8 text-black hover:-translate-y-1 hover:shadow-cyan-500/10 transition-all duration-500"
+         className="bg-white rounded-3xl border border-slate-200 shadow-2xl p-5 sm:p-8 text-black hover:-translate-y-1 hover:shadow-cyan-500/10 transition-all duration-500"
         >
           <label className="block mb-2 text-sm font-semibold text-gray-700">
             Bio
@@ -150,7 +150,7 @@ export default function Profile() {
             name="bio"
             value={formData.bio}
             placeholder="Your Bio"
-            className="w-full border p-3 rounded mb-4"
+            className="w-full border p-3 rounded-xl mb-4 text-sm sm:text-base"
             onChange={handleChange}
           />
           <label className="block mb-2 text-sm font-semibold text-gray-700">
@@ -160,7 +160,7 @@ export default function Profile() {
             name="profileImage"
             value={formData.profileImage}
             placeholder="Profile Image URL"
-            className="w-full border p-3 rounded mb-4"
+            className="w-full border p-3 rounded-xl mb-4 text-sm sm:text-base"
             onChange={handleChange}
           />
           <label className="block mb-2 text-sm font-semibold text-gray-700">
@@ -171,7 +171,7 @@ export default function Profile() {
             name="github"
             value={formData.github}
             placeholder="GitHub URL"
-            className="w-full border p-3 rounded mb-4"
+            className="w-full border p-3 rounded-xl mb-4 text-sm sm:text-base"
             onChange={handleChange}
           />
           <label className="block mb-2 text-sm font-semibold text-gray-700">
@@ -181,7 +181,7 @@ export default function Profile() {
             name="linkedin"
             value={formData.linkedin}
             placeholder="LinkedIn URL"
-            className="w-full border p-3 rounded mb-4"
+            className="w-full border p-3 rounded-xl mb-4 text-sm sm:text-base"
             onChange={handleChange}
           />
           <label className="block mb-2 text-sm font-semibold text-gray-700">
@@ -191,7 +191,7 @@ export default function Profile() {
             name="twitter"
             value={formData.twitter}
             placeholder="Twitter URL"
-            className="w-full border p-3 rounded mb-4"
+            className="w-full border p-3 rounded-xl mb-4 text-sm sm:text-base"
             onChange={handleChange}
           />
           <label className="block mb-2 text-sm font-semibold text-gray-700">
@@ -201,7 +201,7 @@ export default function Profile() {
             name="resumeUrl"
             value={formData.resumeUrl}
             placeholder="Resume URL"
-            className="w-full border p-3 rounded mb-4"
+            className="w-full border p-3 rounded-xl mb-4 text-sm sm:text-base"
             onChange={handleChange}
           />
           <label className="block mb-2 text-sm font-semibold text-gray-700">
@@ -210,7 +210,7 @@ export default function Profile() {
           <input
   placeholder="React, Next.js, MongoDB"
   value={skillsInput}
-  className="w-full border p-3 rounded mb-4"
+  className="w-full border p-3 rounded-xl mb-4 text-sm sm:text-base"
   onChange={(e) => {
     setSkillsInput(e.target.value);
 
@@ -226,23 +226,23 @@ export default function Profile() {
 
           <button
             type="submit"
-            className="w-full bg-black text-white py-4 rounded-xl text-lg font-semibold hover:bg-gray-800 transition"
+            className="w-full bg-black text-white py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-gray-800 transition"
           >
             Save Profile
           </button>
         </form>
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl p-8 text-black hover:-translate-y-1 hover:shadow-violet-500/10 transition-all duration-500">
-          <h2 className="text-2xl font-bold mb-6">Live Preview 👀</h2>
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl p-5 sm:p-8 text-black hover:-translate-y-1 hover:shadow-violet-500/10 transition-all duration-500">
+          <h2 className="text-xl sm:text-2xl font-bold mb-6">Live Preview 👀</h2>
 
           {formData.profileImage && (
             <img
               src={formData.profileImage}
               alt="profile"
-              className="w-36 h-36 rounded-full object-cover mx-auto border-4 border-black shadow-lg"
+              className="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover mx-auto border-4 border-black shadow-lg"
             />
           )}
 
-          <h3 className="text-3xl font-bold text-center mt-5">
+          <h3 className="text-2xl sm:text-3xl font-bold text-center mt-5">
             {formData.name || "Your Name"}
           </h3>
 
@@ -250,7 +250,7 @@ export default function Profile() {
             @{formData.username || "username"}
           </p>
 
-          <p className="text-center text-gray-600 mt-5 leading-7">
+          <p className="text-center text-gray-600 mt-5 text-sm sm:text-base leading-6 sm:leading-7">
             {formData.bio || "Your bio will appear here..."}
           </p>
 
