@@ -1,9 +1,11 @@
 "use client";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 import { useState } from "react";
 
 export default function Projects() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -41,20 +43,15 @@ export default function Projects() {
 
     const result = await res.json();
 
-    if (res.ok) {
-     toast.success("Project added successfully 🚀");
+   if (res.ok) {
+  toast.success("Project added successfully 🚀");
 
-
-      setFormData({
-        title: "",
-        description: "",
-        techStack: "",
-        repoLink: "",
-        liveLink: "",
-        screenshot: "",
-         featured: false,
-      });
-    } else {
+  setTimeout(() => {
+    router.push("/dashboard");
+    router.refresh();
+  }, 1000);
+}
+     else {
      toast.error(result.message);
     }
   };

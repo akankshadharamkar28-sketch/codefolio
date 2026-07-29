@@ -4,42 +4,33 @@ import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import Project from "@/models/Project";
 
-
-export async function POST(request){
-
-  try{
-
+export async function POST(request) {
+  try {
     await connectDb();
-
 
     const cookieStore = await cookies();
 
     const token = cookieStore.get("token")?.value;
 
-
-    if(!token){
+    if (!token) {
       return NextResponse.json(
         {
-          message:"Not logged in"
+          message: "Not logged in",
         },
         {
-          status:401
-        }
+          status: 401,
+        },
       );
     }
 
-
-    const {payload} = await jwtVerify(
+    const { payload } = await jwtVerify(
       token,
-      new TextEncoder().encode(process.env.JWT_SECRET)
+      new TextEncoder().encode(process.env.JWT_SECRET),
     );
-
 
     const body = await request.json();
 
-
     const project = await Project.create({
-
       userId: payload.id,
 
       title: body.title,
@@ -55,228 +46,171 @@ export async function POST(request){
       screenshot: body.screenshot,
 
       featured: body.featured,
-
     });
 
-
     return NextResponse.json(
       {
-        message:"Project added successfully 🚀",
-        project
+        message: "Project added successfully 🚀",
+        project,
       },
       {
-        status:201
-      }
+        status: 201,
+      },
     );
-
-
-  }
-  catch(error){
-
+  } catch (error) {
     return NextResponse.json(
       {
-        message:error.message
+        message: error.message,
       },
       {
-        status:500
-      }
+        status: 500,
+      },
     );
-
   }
-
 }
 
-
-
-export async function GET(){
-
-  try{
-
+export async function GET() {
+  try {
     await connectDb();
-
 
     const cookieStore = await cookies();
 
     const token = cookieStore.get("token")?.value;
 
-
-    if(!token){
-
+    if (!token) {
       return NextResponse.json(
         {
-          message:"Not logged in"
+          message: "Not logged in",
         },
         {
-          status:401
-        }
+          status: 401,
+        },
       );
-
     }
 
-
-    const {payload} = await jwtVerify(
+    const { payload } = await jwtVerify(
       token,
-      new TextEncoder().encode(process.env.JWT_SECRET)
+      new TextEncoder().encode(process.env.JWT_SECRET),
     );
-
 
     const projects = await Project.find({
-      userId:payload.id
+      userId: payload.id,
     });
 
-
     return NextResponse.json(
       {
-        projects
+        projects,
       },
       {
-        status:200
-      }
+        status: 200,
+      },
     );
-
-
-  }
-  catch(error){
-
+  } catch (error) {
     return NextResponse.json(
       {
-        message:error.message
+        message: error.message,
       },
       {
-        status:500
-      }
+        status: 500,
+      },
     );
-
   }
-
 }
-export async function DELETE(request){
-
-  try{
-
+export async function DELETE(request) {
+  try {
     await connectDb();
-
 
     const cookieStore = await cookies();
 
     const token = cookieStore.get("token")?.value;
 
-
-    if(!token){
-
+    if (!token) {
       return NextResponse.json(
         {
-          message:"Not logged in"
+          message: "Not logged in",
         },
         {
-          status:401
-        }
+          status: 401,
+        },
       );
-
     }
 
-
-    const {payload} = await jwtVerify(
+    const { payload } = await jwtVerify(
       token,
-      new TextEncoder().encode(process.env.JWT_SECRET)
+      new TextEncoder().encode(process.env.JWT_SECRET),
     );
 
-
-    const {id} = await request.json();
-
+    const { id } = await request.json();
 
     const project = await Project.findOneAndDelete({
+      _id: id,
 
-      _id:id,
-
-      userId:payload.id
-
+      userId: payload.id,
     });
 
-
-    if(!project){
-
+    if (!project) {
       return NextResponse.json(
         {
-          message:"Project not found"
+          message: "Project not found",
         },
         {
-          status:404
-        }
+          status: 404,
+        },
       );
-
     }
 
-
     return NextResponse.json(
       {
-        message:"Project deleted successfully 🗑️"
+        message: "Project deleted successfully 🗑️",
       },
       {
-        status:200
-      }
+        status: 200,
+      },
     );
-
-
-  }
-  catch(error){
-
+  } catch (error) {
     return NextResponse.json(
       {
-        message:error.message
+        message: error.message,
       },
       {
-        status:500
-      }
+        status: 500,
+      },
     );
-
   }
-
 }
-export async function PUT(request){
-
-  try{
-
+export async function PUT(request) {
+  try {
     await connectDb();
-
 
     const cookieStore = await cookies();
 
     const token = cookieStore.get("token")?.value;
 
-
-    if(!token){
-
+    if (!token) {
       return NextResponse.json(
         {
-          message:"Not logged in"
+          message: "Not logged in",
         },
         {
-          status:401
-        }
+          status: 401,
+        },
       );
-
     }
 
-
-    const {payload} = await jwtVerify(
+    const { payload } = await jwtVerify(
       token,
-      new TextEncoder().encode(process.env.JWT_SECRET)
+      new TextEncoder().encode(process.env.JWT_SECRET),
     );
-
 
     const body = await request.json();
 
-
     const project = await Project.findOneAndUpdate(
-
       {
         _id: body.id,
-        userId: payload.id
+        userId: payload.id,
       },
 
       {
-
         title: body.title,
 
         description: body.description,
@@ -290,53 +224,41 @@ export async function PUT(request){
         screenshot: body.screenshot,
 
         featured: body.featured,
-
       },
 
       {
-        new:true
-      }
-
+        new: true,
+      },
     );
 
-
-    if(!project){
-
+    if (!project) {
       return NextResponse.json(
         {
-          message:"Project not found"
+          message: "Project not found",
         },
         {
-          status:404
-        }
+          status: 404,
+        },
       );
-
     }
 
-
     return NextResponse.json(
       {
-        message:"Project updated successfully 🚀",
-        project
+        message: "Project updated successfully 🚀",
+        project,
       },
       {
-        status:200
-      }
+        status: 200,
+      },
     );
-
-
-  }
-  catch(error){
-
+  } catch (error) {
     return NextResponse.json(
       {
-        message:error.message
+        message: error.message,
       },
       {
-        status:500
-      }
+        status: 500,
+      },
     );
-
   }
-
 }
