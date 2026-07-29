@@ -174,26 +174,32 @@ const completion = Math.round(
 
     <div className="flex flex-col sm:flex-row gap-3 mt-3">
 
-      <input
-        value={`${window.location.origin}/${user.username}`}
-        readOnly
-        className="w-full rounded-xl border border-gray-300 px-4 py-3 bg-gray-50"
-      />
+  <input
+    value={`${window.location.origin}/${user.username}`}
+    readOnly
+    className="w-full rounded-xl border border-gray-300 px-4 py-3 bg-gray-50"
+  />
 
-      <button
-        onClick={()=>{
-          navigator.clipboard.writeText(
-            `${window.location.origin}/${user.username}`
-          );
-          toast.success("Copied 🚀");
-        }}
-        className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold"
-      >
-        Copy
-      </button>
+  <button
+    onClick={() => {
+      navigator.clipboard.writeText(
+        `${window.location.origin}/${user.username}`
+      );
+      toast.success("Copied 🚀");
+    }}
+    className="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold"
+  >
+    Copy
+  </button>
 
-    </div>
+  <button
+    onClick={() => router.push(`/${user.username}`)}
+    className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 text-white font-semibold hover:scale-105 transition"
+  >
+    👀 View Portfolio
+  </button>
 
+</div>
   </div>
 
 </div>
